@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\ModelIncident;
 use App\ModelIncidentMini;
+use App\ModelIncidentAnalyzing;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,9 @@ class ControllerIncidentList extends Controller
         } else {
             return $this->show($id);
         }
+    }
+    public function findIncidentAnalyzing() {
+        return ModelIncident::where('pic_analyzing', "Aulia")->orderBy('id', 'asc')->get();
     }
 
     /**
@@ -63,9 +67,28 @@ class ControllerIncidentList extends Controller
         $incident->raise_date = $request->input('raise_date');
         $incident->priority = $request->input('priority');
         $incident->issue_description = $request->input('issue_description');
+        $incident->module = $request->input('module');
+        $incident->sub_module = $request->input('sub_module');
+        $incident->pic_analyzing = $request->input('pic_analyzing');
+        $incident->pic_fixing = $request->input('pic_fixing');
+        $incident->pic_testing = $request->input('pic_testing');
         $incident->save();
 
         return 'Incident record successfully created with id ' . $incident->id;
+    }
+    
+    public function updateIncidentAnalyzing(Request $request, $id) {
+        $incident = ModelIncidentAnalyzing::find($id);
+        
+        $incident->category_group = $request->input('category_group');
+        $incident->category_root_cause = $request->input('category_root_cause');
+        $incident->issue_description = $request->input('issue_description');
+        $incident->suspected_reason = $request->input('suspected_reason');
+        $incident->respon_taken = $request->input('respon_taken');
+        $incident->decided_solution = $request->input('decided_solution');
+        $incident->save();
+
+        return "Sucess updating Incident #" . $incident->id;
     }
 
     /**

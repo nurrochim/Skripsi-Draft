@@ -7,6 +7,13 @@
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {height: 400px}
 
+row.contentautomatic {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
+}
+
 /* Set gray background color and 100% height */
 .sidenav {
     padding-top: 20px;
@@ -19,6 +26,7 @@ footer {
     background-color: #555;
     color: white;
     padding: 15px;
+    
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */

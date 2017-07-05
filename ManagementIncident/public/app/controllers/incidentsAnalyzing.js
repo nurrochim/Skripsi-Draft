@@ -4,7 +4,7 @@ app.controller('incidentController', function($scope, $http, API_URL) {
     incident.raise_date = "2017-07-21T18:25:43-05:00";
     
     //retrieve employees listing from API
-    $http.get(API_URL + "incidents")
+    $http.get(API_URL + "incidentsAnalyzing")
             .success(function(response) {
                 $scope.incidents = response;
             });
@@ -18,7 +18,7 @@ app.controller('incidentController', function($scope, $http, API_URL) {
                 $scope.form_title = "Add New Incident";
                 break;
             case 'edit':
-                $scope.form_title = "Incident Detail";
+                $scope.form_title = "Incident Detail Analyzing";
                 $scope.id = id;
                 $http.get(API_URL + 'incidents/' + id)
                         .success(function(response) {
@@ -35,7 +35,7 @@ app.controller('incidentController', function($scope, $http, API_URL) {
 
     //save new record / update existing record
     $scope.save = function(modalstate, id) {
-        var url = API_URL + "incidents";
+        var url = API_URL + "incidentsAnalyzing";
         
         //append employee id to the URL if the form is in edit mode
         if (modalstate === 'edit'){
@@ -162,6 +162,42 @@ app.controller('incidentController', function($scope, $http, API_URL) {
     ];
     $scope.selectedOptionPIC = $scope.optionsPIC[0].value;
     
+    // category
+    $scope.optionsCategory = [
+    { name : 'System Issue', value : 'System Issue' },
+    { name : 'Operation Issue', value : 'Operation Issue' },
+    { name : 'Data Issue', value : 'Data Issue' },
+    { name : 'Others Issue', value : 'Others Issue' },
+    { name : 'Operation Support', value : 'Operation Support' }
+    ];
+    $scope.selectedOptionCategory = $scope.optionsCategory[0].value;
+    
+    // root cause
+    // category
+    $scope.optionsRootCause = [
+    { name : 'Confirmation', value : 'Confirmation' },
+    { name : 'Business Case', value : 'Business Case' },
+    { name : 'Data Input Issue', value : 'Data Input Issue' },
+    { name : 'Data Migration Issue', value : 'Data Migration Issue' },
+    { name : 'Data Setting Issue', value : 'Data Setting Issue' },
+    { name : 'Deadlock Issue', value : 'Deadlock Issue' },
+    { name : 'Deployment Issue', value : 'Deployment Issue' },
+    { name : 'Design Issue', value : 'Design Issue' },
+    { name : 'Infrastructure', value : 'Infrastructure' },
+    { name : 'Lack of Testing', value : 'Lack of Testing' },
+    { name : 'Miss-operate', value : 'Miss-operate' },
+    { name : 'Network Performance', value : 'Network Performance' },
+    { name : 'Never Test', value : 'Never Test' },
+    { name : 'Newly Used Function', value : 'Newly Used Function' },
+    { name : 'New/Change Request', value : 'New/Change Request' },
+    { name : 'Operational Procedure', value : 'Operational Procedure' },
+    { name : 'Program Bugs', value : 'Program Bugs' },
+    { name : 'CR Side Impact', value : 'CR Side Impact' },
+    { name : 'Uncategorized', value : 'Uncategorized' },
+    { name : 'Uncomplete support', value : 'Uncomplete support' },
+    { name : 'Others', value : 'Others' }
+    ];
+    $scope.selectedOptionRootCause = $scope.optionsRootCause[0].value;
     
 });
 

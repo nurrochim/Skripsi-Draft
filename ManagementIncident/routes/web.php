@@ -20,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('/incidentInput', function(){return view('incident_input');});
+Route::get('/incidentMonitoring', function(){return view('incident_monitoring');});
+Route::get('/incidentAnalyzing', function(){return view('incident_input_analyzing');});

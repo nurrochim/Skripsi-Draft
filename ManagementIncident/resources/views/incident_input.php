@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap.block-grid/latest/bootstrap3-block-grid.min.css" />
     </head>
     <body>
         <header>
@@ -25,42 +25,57 @@
         <div class="menu">
             <a href="index.php">User List</a>
             <a class="menucurrent" href="incidentInput">Incident List</a>
-            <a href="orderlist">Monitoring Incident</a>
+            <a href="incidentMonitoring">Monitoring Incident</a>
         </div>
-        <div class="row content">
+        <div class="row contentautomatic">
             <div class="col-sm-1">
             </div>
-            <div class="col-sm-8 text-left"> 
-                <h1 style="border-bottom:#e8491d 3px solid;margin-bottom: 30px;text-align: center;">User List</h1>
+            <div class="col-sm-10 text-left"> 
+                <h1 style="border-bottom:#e8491d 3px solid;margin-bottom: 30px;text-align: center;">Incident List</h1>
                 <div  ng-controller="incidentController">
 
 
                     <!-- Table-to-load-the-data Part -->
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Raise Date</th>
-                                <th>Priority</th>
-                                <th>Issue Descriptiont</th>
+                    <div class="container">
+                        <div class=" panel panel-default block-grid-xs-1 ">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Raise Date</th>
+                                            <th>Priority</th>
+                                            <th>Issue Descriptiont</th>
+                                            <th>Modul/Sub Modul</th>
+                                            <th>PIC Analyzing</th>
+                                            <th>PIC Fixing</th>
+                                            <th>PIC Testing</th>
 
-                                <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Incident</button></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr ng-repeat="incident in incidents">
-                                <td>{{ incident.id}}</td>
-                                <td>{{ incident.raise_date}}</td>
-                                <td>{{ incident.priority}}</td>
-                                <td>{{ incident.issue_description}}</td>
-                                <td>
-                                    <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', incident.id)">Edit</button>
-
-                                    <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(incident.id)">Delete</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                            <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Incident</button></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="incident in incidents">
+                                            <td>{{ incident.id}}</td>
+                                            <td>{{ incident.raise_date}}</td>
+                                            <td>{{ incident.priority}}</td>
+                                            <td>{{ incident.issue_description}}</td>
+                                            <td>Module = {{ incident.module}} </br>Sub Modul = {{ incident.sub_module}}</td>
+                                            <td>{{ incident.pic_analyzing}}</td>
+                                            <td>{{ incident.pic_fixing}}</td>
+                                            <td>{{ incident.pic_testing}}</td>
+                                            <td>
+                                                <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', incident.id)">Edit</button>
+                                                <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(incident.id)">Delete</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    </br>
+                    
                     <!-- End of Table-to-load-the-data Part -->
                     <!-- Modal (Pop up when detail button clicked) -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -99,10 +114,6 @@
                                                 <select class="form-control" id="sel1" 
                                                         ng-model="incident.priority"
                                                         ng-options="option.value as option.name for option in options">
-                                                    <option>Critical</option>
-                                                    <option>High</option>
-                                                    <option>Medium</option>
-                                                    <option>Low</option>
                                                 </select>
 
                                             </div>
@@ -116,7 +127,56 @@
                                                       ng-show="frmIncident.issuedesc.$invalid && frmIncident.issuedesc.$touched">Issue Description field is required</span>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Module</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="moduleSelect" 
+                                                        ng-model="incident.module"
+                                                        ng-options="option.value as option.name for option in optionsModul">
+                                                </select>
 
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">Sub Module</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="submoduleSelect" 
+                                                        ng-model="incident.sub_module"
+                                                        ng-options="option.value as option.name for option in optionsSubModul">
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">PIC Analyzing</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="picAnalyzingSelect" 
+                                                        ng-model="incident.pic_analyzing"
+                                                        ng-options="option.value as option.name for option in optionsPIC">
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">PIC Fixing</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="picFixingSelect" 
+                                                        ng-model="incident.pic_fixing"
+                                                        ng-options="option.value as option.name for option in optionsPIC">
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-4 control-label">PIC Testing</label>
+                                            <div class="col-sm-8">
+                                                <select class="form-control" id="picTestingSelect" 
+                                                        ng-model="incident.pic_testing"
+                                                        ng-options="option.value as option.name for option in optionsPIC">
+                                                </select>
+
+                                            </div>
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">

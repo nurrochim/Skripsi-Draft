@@ -29,4 +29,6 @@ Route::delete('/v1/employees/{id}', 'Employees@destroy');
 Route::get('/v1/incidents/{id?}', 'ControllerIncidentList@index');
 Route::post('/v1/incidents', 'ControllerIncidentList@createNewIncidentMini');
 Route::post('/v1/incidents/{id}', 'ControllerIncidentList@updateByCreator');
+Route::post('/v1/incidentsAnalyzing/{id}', 'ControllerIncidentList@updateIncidentAnalyzing');
 Route::delete('/v1/incidents/{id}', 'ControllerIncidentList@destroy');
+Route::get('/v1/incidentsAnalyzing', 'ControllerIncidentList@findIncidentAnalyzing');

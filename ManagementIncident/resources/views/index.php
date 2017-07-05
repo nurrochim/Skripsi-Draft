@@ -23,12 +23,12 @@
         <div class="menu">
             <a class="menucurrent" href="index.php">User List</a>
             <a href="incidentInput">Incident List</a>
-            <a href="orderlist">Monitoring Incident</a>
+            <a href="incidentMonitoring">Monitoring Incident</a>
         </div>
         <div class="row content">
             <div class="col-sm-1">
             </div>
-            <div class="col-sm-8 text-left"> 
+            <div class="col-sm-10 text-left"> 
                 <h1 style="border-bottom:#e8491d 3px solid;margin-bottom: 30px;text-align: center;">User List</h1>
                 <div  ng-controller="employeesController">
 
