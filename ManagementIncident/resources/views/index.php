@@ -23,6 +23,7 @@
         <div class="menu">
             <a class="menucurrent" href="index.php">User List</a>
             <a href="incidentInput">Incident List</a>
+            <a href="incidentAnalyzing">Incident Analyzing</a>
             <a href="incidentMonitoring">Monitoring Incident</a>
         </div>
         <div class="row content">

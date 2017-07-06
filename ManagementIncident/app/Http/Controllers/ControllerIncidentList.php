@@ -114,6 +114,11 @@ class ControllerIncidentList extends Controller
         $incident->raise_date = $request->input('raise_date');
         $incident->priority = $request->input('priority');
         $incident->issue_description = $request->input('issue_description');
+        $incident->module = $request->input('module');
+        $incident->sub_module = $request->input('sub_module');
+        $incident->pic_analyzing = $request->input('pic_analyzing');
+        $incident->pic_fixing = $request->input('pic_fixing');
+        $incident->pic_testing = $request->input('pic_testing');
         $incident->save();
 
         return "Sucess updating Incident #" . $incident->id;

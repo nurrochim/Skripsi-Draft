@@ -148,19 +148,21 @@ app.controller('incidentController', function($scope, $http, API_URL) {
     
     // PIC
     $scope.optionsPIC = [
-    { name : 'Faisal', value : 'Faisal' },
-    { name : 'Ochim', value : 'Ochim' },
+    { name : 'Faisal Amir', value : 'Faisal Amir' },
+    { name : 'Nurochim', value : 'Nurochim' },
     { name : 'Asvian', value : 'Asvian' },
     { name : 'Jumadi', value : 'Jumadi' },
     { name : 'Julda', value : 'Julda' },
-    { name : 'Deny', value : 'Deny' },
-    { name : 'Fatma', value : 'Fatma' },
-    { name : 'Candra', value : 'Candra' },
-    { name : 'Aulia', value : 'Aulia' },
+    { name : 'Deny Ginanjar', value : 'Deny' },
+    { name : 'Fatma Lifaraidlika', value : 'Fatma' },
+    { name : 'Candra Yudhatama', value : 'Candra' },
+    { name : 'Aulia Siahaan', value : 'Aulia' },
     { name : 'Iskandar', value : 'Iskandar' }
 
     ];
     $scope.selectedOptionPIC = $scope.optionsPIC[0].value;
+    
+    
     
     
 });

@@ -25,6 +25,7 @@
         <div class="menu">
             <a href="index.php">User List</a>
             <a href="incidentInput">Incident List</a>
+            <a href="incidentAnalyzing">Incident Analyzing</a>
             <a class="menucurrent" href="incidentMonitoring">Incident Monitoring</a>
         </div>
         <div class="row contentautomatic">
@@ -33,21 +34,9 @@
             <div class="col-sm-10 text-left"> 
                 <h1 style="border-bottom:#e8491d 3px solid;margin-bottom: 30px;text-align: center;">Incident Monitoring</h1>
                 <div  ng-controller="incidentController">
+                    <img class="col-sm-12"src="http://localhost:8000/storage/graph1.png" >
+                    <img class="col-sm-12" style="margin-top: 50px" src="http://localhost:8000/storage/graph3.png">
 
-
-                    <!-- Table-to-load-the-data Part -->
-                    <ul class="block-grid-xs-1 panel panel-default">
-                        <div class="product-image panel-body" >
-                            <img src="http://localhost:8000/storage/graph1.png" >
-                        </div>
-                        
-                    </ul>
-                    <ul class="block-grid-xs-1 panel panel-default">
-                        <div class="product-image panel-body" >
-                            <img src="http://localhost:8000/storage/graph3.png" style="width: 900px">
-                        </div>
-                    </ul>
-                    
                 </div>
             </div>
         </div>

@@ -24,7 +24,8 @@
         </header>
         <div class="menu">
             <a href="index.php">User List</a>
-            <a class="menucurrent" href="incidentInput">Incident List</a>
+            <a href="incidentInput">Incident List</a>
+            <a class="menucurrent" href="incidentAnalyzing">Incident Analyzing</a>
             <a href="incidentMonitoring">Monitoring Incident</a>
         </div>
         <div class="row contentautomatic">
@@ -42,12 +43,9 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Priority</th>
-                                        <th>Modul/Sub Modul/Category</th>
-                                        <th>Issue Descriptiont</th>
-                                        <th>Suspected Reason</th>
-                                        <th>Respon Taken</th>
-                                        <th>Solution</th>
+                                        <th>Raise Date</th>
+                                        <th>Priority & Modul</th>
+                                        <th>Issue Analyzing</th>
 
                                         <th><button id="btn-add" class="btn btn-primary btn-xs">Action</button></th>
                                     </tr>
@@ -55,14 +53,21 @@
                                 <tbody>
                                     <tr ng-repeat="incident in incidents">
                                         <td>{{ incident.id}}</td>
-                                        <td>{{ incident.priority}}</td>
-                                        <td>Module = {{ incident.module}} </br>Sub Modul = {{ incident.sub_module}}
-                                            </br>Category Group = {{ incident.category_group}} </br>Root Cause = {{ incident.category_root_cause}}</td>
-                                        <td>{{ incident.issue_description}}</td>
-                                        <td>{{ incident.suspected_reason}}</td>
-                                        <td>{{ incident.respon_taken}}</td>
-                                        <td>{{ incident.decided_solution}}</td>
-                                        
+                                        <td style="width: 100px">{{ incident.raise_date}}</td>
+                                        <td style="width: 200px">
+                                                 <text class="fieldintable">Priority : </text>{{ incident.priority}} 
+                                            </br><text class="fieldintable">Module : </text>{{ incident.module}}
+                                                 </br><text class="fieldintable">Sub Module : </text>{{ incident.sub_module}}
+                                            </br><text class="fieldintable">Category Group : </text>{{ incident.category_group}} 
+                                            </br><text class="fieldintable">Root Cause : </text>{{ incident.category_root_cause}}
+                                        </td>
+                                        <td>
+                                            <text class="fieldintableincident">Issue Descriptions : </text> </br>{{ incident.issue_description}} 
+                                            </br><text class="fieldintableincident">Suspected Reason : </text></br>{{ incident.suspected_reason}}
+                                            </br><text class="fieldintableincident">Respon Taken : </text></br>{{ incident.respon_taken}} 
+                                            </br><text class="fieldintableincident">Decided solution : </text></br>{{ incident.decided_solution}}
+                                        </td>
+                                       
                                         <td>
                                             <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', incident.id)">Edit</button>
                                         </td>

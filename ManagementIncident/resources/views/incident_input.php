@@ -25,6 +25,7 @@
         <div class="menu">
             <a href="index.php">User List</a>
             <a class="menucurrent" href="incidentInput">Incident List</a>
+            <a href="incidentAnalyzing">Incident Analyzing</a>
             <a href="incidentMonitoring">Monitoring Incident</a>
         </div>
         <div class="row contentautomatic">
@@ -44,12 +45,9 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Raise Date</th>
-                                            <th>Priority</th>
+                                            <th>Priority & Module</th>
                                             <th>Issue Descriptiont</th>
-                                            <th>Modul/Sub Modul</th>
-                                            <th>PIC Analyzing</th>
-                                            <th>PIC Fixing</th>
-                                            <th>PIC Testing</th>
+                                            <th>PIC</th>
 
                                             <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Incident</button></th>
                                         </tr>
@@ -58,12 +56,16 @@
                                         <tr ng-repeat="incident in incidents">
                                             <td>{{ incident.id}}</td>
                                             <td>{{ incident.raise_date}}</td>
-                                            <td>{{ incident.priority}}</td>
-                                            <td>{{ incident.issue_description}}</td>
-                                            <td>Module = {{ incident.module}} </br>Sub Modul = {{ incident.sub_module}}</td>
-                                            <td>{{ incident.pic_analyzing}}</td>
-                                            <td>{{ incident.pic_fixing}}</td>
-                                            <td>{{ incident.pic_testing}}</td>
+                                            <td style="width: 200px">
+                                                <text class="fieldintable">Priority : </text>{{ incident.priority}}
+                                                </br><text class="fieldintable">Module : </text>{{ incident.module}} 
+                                                </br><text class="fieldintable">Sub Module : </text>{{ incident.sub_module}}
+                                            </td>
+                                            <td style="width: 400px">{{incident.issue_description}}</td>
+
+                                            <td><text class="fieldintable">Analyzing : </text>{{ incident.pic_analyzing}}
+                                                </br><text class="fieldintable">Fixing : </text>{{ incident.pic_fixing}}
+                                                </br><text class="fieldintable">Testing : </text>{{ incident.pic_testing}}</td>
                                             <td>
                                                 <button class="btn btn-default btn-xs btn-detail" ng-click="toggle('edit', incident.id)">Edit</button>
                                                 <button class="btn btn-danger btn-xs btn-delete" ng-click="confirmDelete(incident.id)">Delete</button>
@@ -75,7 +77,7 @@
                         </div>
                     </div>
                     </br>
-                    
+
                     <!-- End of Table-to-load-the-data Part -->
                     <!-- Modal (Pop up when detail button clicked) -->
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

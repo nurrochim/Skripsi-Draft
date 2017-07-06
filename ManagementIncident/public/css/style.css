@@ -84,6 +84,24 @@ header #name{
     text-decoration: none;
 }
 
+.fieldintable{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.fieldintableincident{
+    font-size: 12px;
+    font-weight: bold;
+    font-style: oblique;
+    text-decoration: underline;
+}
+
+p.msg {
+    display: block;
+    white-space: pre;
+    width: 300px;
+}
+
 .dropdownmenu {
     float: left;
     overflow: hidden;
