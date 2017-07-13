@@ -11,7 +11,7 @@ app.controller('employeesController', function($scope, $http, API_URL) {
 
         switch (modalstate) {
             case 'add':
-                $scope.form_title = "Add New Employee";
+                $scope.form_title = "Add New User";
                 break;
             case 'edit':
                 $scope.form_title = "Employee Detail";

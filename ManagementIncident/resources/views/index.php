@@ -42,7 +42,7 @@
                                 <th>Email</th>
                                 <th>Contact No</th>
                                 <th>Position</th>
-                                <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New Employee</button></th>
+                                <th><button id="btn-add" class="btn btn-primary btn-xs" ng-click="toggle('add', 0)">Add New User</button></th>
                             </tr>
                         </thead>
                         <tbody>

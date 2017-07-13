@@ -34,8 +34,8 @@
             <div class="col-sm-10 text-left"> 
                 <h1 style="border-bottom:#e8491d 3px solid;margin-bottom: 30px;text-align: center;">Incident Monitoring</h1>
                 <div  ng-controller="incidentController">
-                    <img class="col-sm-12"src="http://localhost:8000/storage/graph1.png" >
-                    <img class="col-sm-12" style="margin-top: 50px" src="http://localhost:8000/storage/graph3.png">
+                    <!--<img class="col-sm-12"src="http://localhost:8000/storage/graph1.png" >-->
+                    <img class="col-sm-12" style="margin-top: 0px" src="http://localhost:8000/storage/graph3.png">
 
                 </div>
             </div>
